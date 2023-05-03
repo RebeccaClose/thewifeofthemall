@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>The Wife of Them All</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/words.css" />
+    <script src="https://d3js.org/d3.v5.min.js" defer></script>
+    <script src="/local-storage.js" defer></script>
+    <script src="/words.js" defer></script>
+  </head>
+
+  <header>
+    <div id="mySidenav" class="sidenav">
+      <a href="#" class="button" id="button1">about</a>
+      <a href="https://vimeo.com/815822301" class="button" id="button2">film</a>
+      <a href="#" class="button" id="button3">poster</a>
+      <a href="#" class="button" id="button4">trailer</a>
+    </div>
+  </header>
+
+  <body>
+    <div id="container" style="pointer-events: none"></div>
+    <div id="scores">
+      <div id="cost"></div>
+      <div id="gauges"></div>
+    </div>
+    <div id="reset">
+      <div id="reset-button">Reset</div>
+    </div>
+    <div id="banner" style="display: none">
+      <div id="banner-content">
+        <div>
+          <p>
+            Hi! This is the website for THE WIFE OF THEM ALL (2022), a film by
+            Rebecca Close.
+          </p>
+          <p>
+            This site playfully uses 'local storage' (similar to cookies) to
+            draw attention to the complicity of the viewer in creating meaning &
+            value via the screen
+          </p>
+          <p>which is one of the main themes of the film</p>
+          <p>
+            This is not quite a cookies ‘accept/reject’ button, just sharing
+            information about the tools used. 
+          </p>
+        </div>
+        <div id="buttons">
+          <div id="ok-button">I’m ok with this.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- xy added this -->
+    <div class="popupTrailer">
+      <div class="popup-content">
+        <div style="padding: 56.25% 0 0 0; position: relative">
+          <iframe
+            src="https://player.vimeo.com/video/761428716?h=daf2e69ab4&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            style="
+              position: absolute;
+              top: 80px;
+              left: 8%;
+              width: 85%;
+              height: 85%;
+              border: 2px solid black;
+            "
+                  title="The Wife of Them All"
+          ></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+        <img
+          src="https://cdn.glitch.global/ab20b6a0-d0b5-47a7-9807-c0d287ff58d8/cross.svg?v=1666606397251"
+          alt="Close"
+          class="close"
+        />
+      </div>
+    </div>
+    
+    
+
+    <div class="popupPoster">
+      <div class="popup-poster-content">
+        <!-- put your own poster here-->
+        <img
+          class="poster"
+          src="https://cdn.glitch.global/ab20b6a0-d0b5-47a7-9807-c0d287ff58d8/Wife%20Poster1-1.jpg?v=1666607452831"
+          alt="Poster"
+        />
+
+        <img
+          src="https://cdn.glitch.global/ab20b6a0-d0b5-47a7-9807-c0d287ff58d8/cross.svg?v=1666606397251"
+          alt="Close"
+          class="closePoster"
+        />
+      </div>
+    </div>
+
+    <div class="popupAbout">
+      <div class="popup-content">
+        <div class="textAbout">
+          <p class="textAbout--style">
+            The Wife of Them All (2022) follows a family based accross continents as they 
+            traverse and move beyond borders, mad bureacracy and precarious work. 
+            Anarchic linking between clay animation; time-lapse microscopy and feminist video art in a project that contextualises the booming fertility market in relation to the migratory control system.
+            <br>The film premiered at the 27th LesGaiCineMad Festival and the legendary International Short Film Festival Oberhausen in its 69th edition, with the support of HAMACA Moving Image Platform.
+        </div>
+        <img
+          src="https://cdn.glitch.global/ab20b6a0-d0b5-47a7-9807-c0d287ff58d8/cross.svg?v=1666606397251"
+          alt="Close"
+          class="closeAbout"
+        />
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("button1").addEventListener("click", function () {
+        document.querySelector(".popupAbout").style.display = "flex";
+      });
+                                                         
+                                                                    
+      document.getElementById("button3").addEventListener("click", function () {
+        document.querySelector(".popupPoster").style.display = "flex";
+      });
+
+      document.getElementById("button4").addEventListener("click", function () {
+        document.querySelector(".popupTrailer").style.display = "flex";
+      });
+
+      document
+        .querySelector(".closeAbout")
+        .addEventListener("click", function () {
+          document.querySelector(".popupAbout").style.display = "none";
+        });
+                                                                                                                                   
+
+      document.querySelector(".close").addEventListener("click", function () {
+        document.querySelector(".popupTrailer").style.display = "none";
+      });
+
+      document
+        .querySelector(".closePoster")
+        .addEventListener("click", function () {
+          document.querySelector(".popupPoster").style.display = "none";
+        });
+    </script>
+
+    <!-- xy added this -->
+  </body>
+</html>
