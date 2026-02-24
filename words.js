@@ -1,16 +1,14 @@
 
-const assetsUrlPrefix =
-  'https://cdn.glitch.global/ab20b6a0-d0b5-47a7-9807-c0d287ff58d8/' ;
-
+const assetsUrlPrefix = 'img/';
 const imageCount = 44;
 // Load state from local storage; if that doesn't work, start over
 const state = loadState() || {
-  "assisted reproduction of race": 0,
+"assisted reproduction of race": 0,
   "science & fiction": 0,
   "queer reproductive work": 0,
   "life & animation": 0,
   cost: 0,
-  useStorage: false,
+  useStorage: false
 };
 
 
