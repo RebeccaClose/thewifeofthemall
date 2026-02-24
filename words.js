@@ -101,8 +101,8 @@ function displayData() {
   const cost = state["cost"] || 0;
   d3.select("#cost").text("€" + Number(cost).toLocaleString());
   const scores = Object.keys(state)
-    .filter((d) => d !== "cost" && d !== "useStorage")
-    .map((d) => ({ category: d, value: state[d] }));
+    .filter(d => d !== "cost" && d !== "useStorage")
+    .map(d => ({ category: d, value: state[d] }));
   const width = 100;
   const height = 600;
   const maxScore = 200;
@@ -111,13 +111,16 @@ function displayData() {
     .domain([0, maxScore])
     .range([height, 0])
     .clamp(true);
-
+  
   const gaugeUpdate = d3
     .select("#gauges")
     .selectAll(".gauge")
-    .data(scores, (d) => d.category);
+    .data(scores, d => d.category);
 
-  const gaugeEnter = gaugeUpdate.enter().append("div").attr("class", "gauge");
+  const gaugeEnter = gaugeUpdate
+    .enter()
+    .append("div")
+    .attr("class", "gauge");
 
   gaugeEnter
     .append("svg")
@@ -127,27 +130,27 @@ function displayData() {
   gaugeEnter
     .append("div")
     .attr("class", "label")
-    .text((d) => d.category);
+    .text(d => d.category);
 
   const gaugeEnterUpdate = gaugeEnter.merge(gaugeUpdate);
 
   gaugeEnterUpdate
     .select("svg")
     .selectAll("rect")
-    .data((d) => {
+    .data(d => {
       console.log(d);
       return d3.range(d.value);
     })
     .join("rect")
     .attr("x", width / 2 - 10)
-    .attr("y", (d) => y(d))
-    .attr("fill", "#30D5C8")
+    .attr("y", d => y(d))
+    .attr("fill", "#6A06ED")
     .attr("width", 30)
     .attr("height", 10);
 }
 
-document.querySelector("#reset").addEventListener("click", (e) => {
-  Object.keys(state).forEach((key) => {
+document.querySelector("#reset").addEventListener("click", e => {
+  Object.keys(state).forEach(key => {
     if (key !== "useStorage") state[key] = 0;
   });
   displayData();
