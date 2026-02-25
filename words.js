@@ -60,7 +60,7 @@ function renderWords(csv) {
     .style(
       "background",
       (d, i) =>
-        `center / cover no-repeat url("${assetsUrlPrefix}${imageIDs[i]}.jpg")`
+        `center / cover no-repeat url("${assetsUrlPrefix}${imageIDs[i]}B.jpg")`
     )
     .append("div")
     .attr("class", "word")
